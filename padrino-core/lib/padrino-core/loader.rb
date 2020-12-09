@@ -138,7 +138,8 @@ module Padrino
 
         files.dup.each do |file|
           begin
-            Reloader.safe_load(file, options)
+            # Reloader.safe_load(file, options)
+            require file
             files.delete(file)
             loaded = true
           rescue NameError, LoadError => error
